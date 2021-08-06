@@ -21,4 +21,6 @@
     <string name="download_icon">Download Icon</string>
     <string name="large_image">Large Image</string>
     <string name="user_pfp">User PFP</string>
+    <string name="btn_logout">Logout</string>
+    <string name="account_name">marksten</string>
 </resources>
