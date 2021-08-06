@@ -1,0 +1,24 @@
+<resources>
+    <string name="app_name">Pixabay Images</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="pixabay_gallery">Pixabay Gallery</string>
+    <string name="no_results_for">No results for</string>
+    <string name="results_for">Results for</string>
+    <string name="this_query">this query</string>
+    <string name="likes">Likes</string>
+    <string name="tags">Tags</string>
+    <string name="size">Size</string>
+    <string name="resolution_val">%sx%s</string>
+    <string name="size_val">%.2f mb</string>
+    <string name="views">Views</string>
+    <string name="downloads">Downloads</string>
+    <string name="comments">Comments</string>
+    <string name="empty">-</string>
+    <string name="resolution">Resolution</string>
+    <string name="username">username</string>
+    <string name="favorite_icon">Favorite Icon</string>
+    <string name="set_as_icon">Set As Icon</string>
+    <string name="download_icon">Download Icon</string>
+    <string name="large_image">Large Image</string>
+    <string name="user_pfp">User PFP</string>
+</resources>
