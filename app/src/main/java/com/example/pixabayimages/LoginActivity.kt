@@ -31,6 +31,9 @@ class LoginActivity : AppCompatActivity() {
         btnRegisterInstead.setOnClickListener{
             userRegister()
         }
+        memoryDb.currentUser.observe(this,{
+            preferences.setCurrentUser(it)
+        })
     }
 
     private fun userRegister() {
@@ -42,10 +45,10 @@ class LoginActivity : AppCompatActivity() {
         val typedUsername = username_login.text.toString().toLowerCase(Locale.ROOT)
         val typedPassword = password_login.text.toString()
 
-        val userList = preferences.getUserList()
+        val userList = memoryDb.userList.value
         var userData : UserData? = null
-        for (item in userList){
-            if (item?.username.equals(typedUsername)){
+        for (item in userList!!){
+            if (item.username == typedUsername){
                 userData = item
 
             }
@@ -54,12 +57,11 @@ class LoginActivity : AppCompatActivity() {
         Log.d(TAG, "userLogin: yes $userPassword")
         if (typedPassword == userPassword){
             if (userData != null) {
-                preferences.setCurrentUser(userData)
+                memoryDb.currentUser.value = userData
             }
             Log.d(TAG, "userLogin: password is same")
             val intent = Intent(this, MainActivity::class.java)
             intent.flags = Intent.FLAG_ACTIVITY_REORDER_TO_FRONT;
-            fragmentAccount.setUsername(userData!!.username)
             return startActivityIfNeeded(intent, 0);
         }
 

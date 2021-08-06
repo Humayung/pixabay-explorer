@@ -2,7 +2,6 @@ package com.example.pixabayimages
 
 import android.content.Intent
 import android.os.Bundle
-import android.service.autofill.UserData
 import androidx.appcompat.app.AppCompatActivity
 import androidx.viewpager2.widget.ViewPager2
 import com.example.pixabayimages.adapter.ViewPagerAdapter
@@ -26,6 +25,7 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+        setInitialValue()
         pager.adapter = loadFragments()
         pager.registerOnPageChangeCallback(object : ViewPager2.OnPageChangeCallback(){
             override fun onPageSelected(position: Int) {
@@ -53,11 +53,18 @@ class MainActivity : AppCompatActivity() {
             }
         })
 
+        memoryDb.userList.observe(this, {
+            preferences.setUserList(it)
+        })
+
+        memoryDb.query.observe(this,{
+            preferences.setQuery(it)
+        })
         doLogin()
     }
 
     private fun doLogin() {
-        val currentUser = preferences.getCurrentUser()
+        val currentUser = memoryDb.currentUser.value
         if (currentUser?.username == ""){
 
             val intent = Intent(this, LoginActivity::class.java)
@@ -74,6 +81,15 @@ class MainActivity : AppCompatActivity() {
         )
         return viewPagerAdapter
     }
+
+    private fun setInitialValue(){
+        memoryDb.query.value = preferences.getQuery()
+        memoryDb.currentUser.value = preferences.getCurrentUser()
+        memoryDb.userList.value = preferences.getUserList()
+
+    }
+
+
 
 
 

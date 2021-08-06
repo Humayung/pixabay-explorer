@@ -37,14 +37,14 @@ class Preferences(context: Context) {
         return this
     }
 
-    fun getUserList(): ArrayList<UserData?>{
+    fun getUserList(): ArrayList<UserData>{
         val string = preferences.getString("userList", "").toString()
         string.ifEmpty { return arrayListOf() }
-        val listType: Type = object : TypeToken<ArrayList<UserData?>?>() {}.type
+        val listType: Type = object : TypeToken<ArrayList<UserData>?>() {}.type
         return Gson().fromJson(string, listType)
     }
 
-    fun setUserList(data: ArrayList<UserData?>) : Preferences{
+    fun setUserList(data: ArrayList<UserData>) : Preferences{
         preferences.edit().putString("userList", Gson().toJson(data)).apply()
         return this
     }

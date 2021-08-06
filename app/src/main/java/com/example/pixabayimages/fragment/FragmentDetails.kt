@@ -92,22 +92,21 @@ class FragmentDetails : BottomSheetDialogFragment() {
 
 
     private fun setLikes(){
-        val currentUser = preferences.getCurrentUser()
+        val currentUser = memoryDb.currentUser.value
         val favoriteList = currentUser?.favoriteList
         favoriteList?.add(photo!!)
-        preferences.setCurrentUser(currentUser!!)
-        Log.d(TAG, "setLikes: ${currentUser.favoriteList.size}")
+        memoryDb.currentUser.value = currentUser
         updateUserData(currentUser)
     }
 
-    private fun updateUserData(userData : UserData) : Boolean {
-        val userList = preferences.getUserList()
-        val length = userList.size - 1
-        (0..length).forEach {
+    private fun updateUserData(userData : UserData?) : Boolean {
+        val userList = memoryDb.userList.value
+        val length = userList?.size?.minus(1)
+        (0..length!!).forEach {
             val data = userList[it]
-            if(data?.username == userData.username){
+            if(data.username == userData?.username){
                 userList[it] = userData
-                preferences.setUserList(userList)
+                memoryDb.userList.value = userList
                 return true
             }
         }

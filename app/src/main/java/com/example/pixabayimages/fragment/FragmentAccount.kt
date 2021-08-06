@@ -39,17 +39,13 @@ class FragmentAccount : Fragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
-        }
+
     }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_account, container, false)
     }
 
@@ -57,34 +53,12 @@ class FragmentAccount : Fragment() {
         btn_logout.setOnClickListener {
             memoryDb.currentUser.value = UserData()
         }
-        Log.d(TAG, "onViewCreated: ${preferences.getCurrentUser()}")
-        val currentUser = preferences.getCurrentUser()
-        userName.text = currentUser?.username
+
+        memoryDb.currentUser.observe(viewLifecycleOwner, {
+            userName.text = it.username
+        })
 
         super.onViewCreated(view, savedInstanceState)
     }
 
-    public fun setUsername(uname: String){
-        userName.text = uname
-    }
-
-    companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment AccountFragment.
-         */
-        // TODO: Rename and change types and number of parameters
-        @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-            FragmentAccount().apply {
-                arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
-                }
-            }
-    }
 }

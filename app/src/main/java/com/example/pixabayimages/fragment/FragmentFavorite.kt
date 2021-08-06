@@ -39,7 +39,7 @@ class FragmentFavorite : Fragment() {
 
 
     override fun onResume() {
-        val currentUser = preferences.getCurrentUser()
+        val currentUser = memoryDb.currentUser.value
         favouriteAdapter.setData(currentUser!!.favoriteList)
         favouriteAdapter.notifyDataSetChanged()
         super.onResume()
@@ -47,7 +47,7 @@ class FragmentFavorite : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        val currentUser = preferences.getCurrentUser()
+        val currentUser = memoryDb.currentUser.value
         favouriteAdapter = FavouriteAdapter(currentUser!!.favoriteList, requireContext() as AppCompatActivity)
         favouriteAdapter.onItemClick = fun(model, position) {
             val previewImage = listfavourite.findViewHolderForAdapterPosition(position)?.itemView?.image

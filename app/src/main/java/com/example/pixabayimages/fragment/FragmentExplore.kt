@@ -87,7 +87,7 @@ class FragmentExplore : Fragment() {
                     resultsFor.visibility = View.VISIBLE
                     list.visibility = View.VISIBLE
                 }
-                query.text = preferences.getQuery()
+                query.text = memoryDb.query.value
                 super.onChanged()
             }
         })
@@ -110,8 +110,8 @@ class FragmentExplore : Fragment() {
     fun loadData() {
         loading = true
         exploreAdapter.setLoading()
-        val searchQuery = preferences.getQuery()
-        apiReq.getImages(page, searchQuery)
+        val searchQuery = memoryDb.query.value
+        apiReq.getImages(page, searchQuery!!)
             .observe(viewLifecycleOwner, {
                 exploreAdapter.removeLoading()
                 if (it.status == Status.SUCCESS) {
