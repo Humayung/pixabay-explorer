@@ -20,6 +20,7 @@ import com.example.pixabayimages.MemoryDb
 import com.example.pixabayimages.R
 import com.example.pixabayimages.TAG
 import com.example.pixabayimages.model.PixabayResponse
+import com.example.pixabayimages.model.UserData
 import com.example.pixabayimages.persistence.Preferences
 import com.example.pixabayimages.toMb
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
@@ -89,12 +90,31 @@ class FragmentDetails : BottomSheetDialogFragment() {
         }
     }
 
-    private fun setLikes() {
-        preferences.setFavoriteList(photo)
-        Log.d(TAG, "setLikesfavorite: " + preferences.getFavoriteList().toString())
 
+    private fun setLikes(){
+        val currentUser = preferences.getCurrentUser()
+        val favoriteList = currentUser?.favoriteList
+        favoriteList?.add(photo!!)
+        preferences.setCurrentUser(currentUser!!)
+        Log.d(TAG, "setLikes: ${currentUser.favoriteList.size}")
+        updateUserData(currentUser)
     }
-    
+
+    private fun updateUserData(userData : UserData) : Boolean {
+        val userList = preferences.getUserList()
+        val length = userList.size - 1
+        (0..length).forEach {
+            val data = userList[it]
+            if(data?.username == userData.username){
+                userList[it] = userData
+                preferences.setUserList(userList)
+                return true
+            }
+        }
+
+        return false
+    }
+
     private fun setAs(){
         val url = photo!!.largeImageURL
         val context = requireContext()

@@ -3,7 +3,7 @@ package com.example.pixabayimages
 import android.graphics.drawable.Drawable
 import androidx.lifecycle.MutableLiveData
 import com.example.pixabayimages.model.ImageDetails
-import com.example.pixabayimages.model.PixabayResponse
+import com.example.pixabayimages.model.UserData
 import com.example.pixabayimages.model.PixabayResponse.*
 import org.koin.core.KoinComponent
 
@@ -25,6 +25,10 @@ class MemoryDb : KoinComponent {
 
     val placeHolderImg: MutableLiveData<Drawable> by lazy {
         MutableLiveData<Drawable>()
+    }
+
+    val currentUser: MutableLiveData<UserData> by lazy {
+        MutableLiveData<UserData>()
     }
 
 

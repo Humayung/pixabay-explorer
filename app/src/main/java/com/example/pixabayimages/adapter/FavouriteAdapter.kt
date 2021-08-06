@@ -1,8 +1,5 @@
 package com.example.pixabayimages.adapter
 
-import android.content.Context
-import android.graphics.drawable.Drawable
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -13,17 +10,13 @@ import androidx.recyclerview.widget.RecyclerView
 import androidx.swiperefreshlayout.widget.CircularProgressDrawable
 import com.bumptech.glide.Glide
 import com.example.pixabayimages.R
-import com.example.pixabayimages.TAG
 import com.example.pixabayimages.model.PixabayResponse
 import com.example.pixabayimages.persistence.Preferences
 import kotlinx.android.synthetic.main.item_explore.view.*
-import okhttp3.ResponseBody
-import org.koin.android.ext.android.inject
 import org.koin.core.KoinComponent
 import org.koin.core.inject
-import kotlin.math.log
 
-class FavouriteAdapter(private var data : ArrayList<PixabayResponse.Photo?>, var context: AppCompatActivity):RecyclerView.Adapter<FavouriteAdapter.Holder>(),KoinComponent {
+class FavouriteAdapter(private var data: ArrayList<PixabayResponse.Photo?>, var context: AppCompatActivity):RecyclerView.Adapter<FavouriteAdapter.Holder>(),KoinComponent {
     private val maxPlaceHolder = 8
     var onItemClick: (data: PixabayResponse.Photo, position: Int) -> Unit = { _, _ -> }
     var onLongClick: (data: PixabayResponse.Photo, position: Int) -> Unit = { _, _ -> }
@@ -109,21 +102,21 @@ class FavouriteAdapter(private var data : ArrayList<PixabayResponse.Photo?>, var
             .centerCrop()
             .into(holder.itemView.image)
 
-//        holder.itemView.setOnClickListener {
-//            onItemClick(data[position], position)
-//        }
+        holder.itemView.setOnClickListener {
+            onItemClick(data[position]!!, position)
+        }
 
-//        holder.itemView.setOnLongClickListener {
-//            onLongClick(data[position], position)
-//            true
-//        }
+        holder.itemView.setOnLongClickListener {
+            onLongClick(data[position]!!, position)
+            true
+        }
 
         val animation: Animation = AnimationUtils.loadAnimation(context, if (position > lastPosition) R.anim.up_from_bottom else R.anim.down_from_top)
         holder.itemView.startAnimation(animation)
         lastPosition = position
 
     }
-    fun setData(data : ArrayList<PixabayResponse.Photo?>){
+    fun setData(data: ArrayList<PixabayResponse.Photo?>){
         this.data = data
     }
 

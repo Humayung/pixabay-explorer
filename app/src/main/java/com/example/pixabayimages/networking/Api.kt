@@ -1,5 +1,6 @@
 package com.example.pixabayimages.networking
 
+import android.graphics.drawable.GradientDrawable
 import com.example.pixabayimages.PER_PAGE
 import com.example.pixabayimages.model.PixabayResponse
 import retrofit2.http.GET
@@ -20,8 +21,7 @@ interface Api {
             @Query("page") page: Int = 1,
             @Query("q") tags: String = "beach",
             @Query("per_page") per_page: Int = PER_PAGE,
-            @Query("editors_choice") editors_choice: Boolean = true
-
+            @Query("orientation") orientation: String = "vertical"
 
     ): PixabayResponse
 }

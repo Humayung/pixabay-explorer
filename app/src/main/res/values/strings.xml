@@ -23,4 +23,15 @@
     <string name="user_pfp">User PFP</string>
     <string name="btn_logout">Logout</string>
     <string name="account_name">marksten</string>
+    <string name="login">Login</string>
+    <string name="login_to_your_account">Login to your account</string>
+    <string name="username_login">Username</string>
+    <string name="password_login">Password</string>
+    <string name="textview">Login to your account</string>
+    <string name="btn_login">Login</string>
+    <string name="btn_register">Register</string>
+    <string name="confirm_password">Confirm Password</string>
+    <string name="register">Register</string>
+    <string name="create_account">Create Account</string>
+    <string name="login_instead">Login Instead</string>
 </resources>

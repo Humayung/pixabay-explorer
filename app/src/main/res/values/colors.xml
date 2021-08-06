@@ -5,5 +5,7 @@
     <color name="pink_900">#880E4F</color>
     <color name="grey_200">#EEEEEE</color>
     <color name="grey_100">#F5F5F5</color>
+    <color name="grey_500">#9E9E9E</color>
+    <color name="primary">#FF800000</color>
 
 </resources>

@@ -91,7 +91,7 @@
                                             <option name="values">
                                               <map>
                                                 <entry key="color" value="000000" />
-                                                <entry key="imagePath" value="$PROJECT_DIR$/Desain/Icons/logout.svg" />
+                                                <entry key="imagePath" value="$PROJECT_DIR$/Desain/Icons/padlock.svg" />
                                               </map>
                                             </option>
                                           </PersistentState>
@@ -123,7 +123,7 @@
                                   </option>
                                   <option name="values">
                                     <map>
-                                      <entry key="outputName" value="ic_logout" />
+                                      <entry key="outputName" value="ic_padlock" />
                                     </map>
                                   </option>
                                 </PersistentState>

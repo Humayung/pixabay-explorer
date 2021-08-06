@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="@string/pixabay_gallery"
+        android:textSize="40sp"
+        android:layout_above="@id/textFields"
+        android:layout_marginBottom="120dp"
+        android:fontFamily="@font/seoul_hangang"/>
+    <TextView
+        android:layout_width="200dp"
+        android:layout_height="20dp"
+        android:text="@string/textview"
+        android:layout_alignStart="@id/textFields"
+        android:layout_marginBottom="16dp"
+        android:layout_above="@id/textFields"
+        android:layout_centerHorizontal="true"
+        android:fontFamily="sans-serif-light"/>
+    <RelativeLayout
+        android:id="@+id/textFields"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true">
+
+        <EditText
+            android:id="@+id/username_login"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="@string/username_login"
+            android:inputType="textPersonName"
+            android:drawableStart="@drawable/ic_person_16"
+            android:drawablePadding="16dp"
+            android:background="@drawable/shape_edittext_round_backround"
+            android:paddingVertical="8dp"
+            android:paddingStart="24dp"
+            android:paddingEnd="24dp"
+            android:drawableTint="@color/grey_500"/>
+
+        <EditText
+            android:paddingVertical="8dp"
+            android:paddingStart="24dp"
+            android:paddingEnd="24dp"
+            android:id="@+id/password_login"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/username_login"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="16dp"
+            android:ems="10"
+            android:hint="@string/password_login"
+            android:inputType="textPersonName"
+            tools:ignore="TextFields"
+            android:background="@drawable/shape_edittext_round_backround"
+            android:drawableStart="@drawable/ic_logout_16"
+            android:drawablePadding="16dp"
+            android:drawableTint="@color/grey_500"/>
+
+    </RelativeLayout>
+
+    <Button
+        android:id="@+id/btnLogin"
+        android:layout_width="104dp"
+        android:layout_height="32dp"
+        android:background="@drawable/shape_btn_round_background"
+        android:drawableTint="@color/white"
+        android:text="@string/btn_login"
+        android:textSize="14sp"
+        android:textColor="#FBFAFA"
+        android:drawablePadding="-4dp"
+        android:textAllCaps="false"
+        android:textStyle="normal"
+        android:layout_marginTop="32dp"
+        android:layout_below="@id/textFields"
+        android:layout_centerHorizontal="true"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/btnRegisterInstead"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/btnLogin"
+        android:text="@string/register"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="32dp"
+        android:textStyle="bold"
+        android:background="@drawable/dashed_underline"/>
+
+
+
+</RelativeLayout>
