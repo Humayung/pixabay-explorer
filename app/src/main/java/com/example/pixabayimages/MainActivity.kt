@@ -53,9 +53,6 @@ class MainActivity : AppCompatActivity() {
             }
         })
 
-        memoryDb.currentUser.observe(this,{
-            fragmentAccount.setUsername(it.username)
-        })
         doLogin()
     }
 
@@ -65,7 +62,7 @@ class MainActivity : AppCompatActivity() {
 
             val intent = Intent(this, LoginActivity::class.java)
             intent.flags = Intent.FLAG_ACTIVITY_REORDER_TO_FRONT;
-            startActivityIfNeeded(intent, 0);
+            startActivityIfNeeded(intent, 0)
         }
     }
 

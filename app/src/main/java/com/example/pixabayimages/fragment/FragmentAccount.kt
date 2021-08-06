@@ -64,8 +64,8 @@ class FragmentAccount : Fragment() {
         super.onViewCreated(view, savedInstanceState)
     }
 
-    public fun setUsername(userName: String){
-
+    public fun setUsername(uname: String){
+        userName.text = uname
     }
 
     companion object {

@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.util.Log
 import android.widget.Toast
 import com.example.pixabayimages.BaseApplication.Companion.context
+import com.example.pixabayimages.fragment.FragmentAccount
 import com.example.pixabayimages.model.UserData
 import com.example.pixabayimages.persistence.Preferences
 import kotlinx.android.synthetic.main.activity_login.*
@@ -16,6 +17,8 @@ import kotlin.math.log
 class LoginActivity : AppCompatActivity() {
     private val memoryDb: MemoryDb by inject()
     private val preferences: Preferences by inject()
+    private val fragmentAccount: FragmentAccount by inject()
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -56,10 +59,12 @@ class LoginActivity : AppCompatActivity() {
             Log.d(TAG, "userLogin: password is same")
             val intent = Intent(this, MainActivity::class.java)
             intent.flags = Intent.FLAG_ACTIVITY_REORDER_TO_FRONT;
+            fragmentAccount.setUsername(userData!!.username)
             return startActivityIfNeeded(intent, 0);
         }
 
         Toast.makeText(context, "Login Failed!", Toast.LENGTH_SHORT).show()
+
         return true
     }
 
