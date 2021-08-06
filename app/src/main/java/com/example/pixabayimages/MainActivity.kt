@@ -52,6 +52,10 @@ class MainActivity : AppCompatActivity() {
                 doLogin()
             }
         })
+
+        memoryDb.currentUser.observe(this,{
+            fragmentAccount.setUsername(it.username)
+        })
         doLogin()
     }
 
