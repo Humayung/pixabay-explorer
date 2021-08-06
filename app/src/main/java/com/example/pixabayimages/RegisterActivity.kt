@@ -34,7 +34,12 @@ class RegisterActivity : AppCompatActivity() {
 
         val typedUsername = username_register.text.toString().toLowerCase()
         val typedPassword = password_register.text.toString()
+        val typedConfirmationPassword = confirmation_register.text.toString()
 
+        if(typedPassword != typedConfirmationPassword){
+            Toast.makeText(BaseApplication.context, "Password not same!!", Toast.LENGTH_SHORT).show()
+            return
+        }
         val newUser = UserData()
         newUser.username = typedUsername
         newUser.password = typedPassword
