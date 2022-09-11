@@ -1,7 +1,7 @@
 # pixabay-gallery
-# Explore Tab
-![alt text](https://github.com/Humayung/pixabay-gallery/blob/main/Desain/Screenshot_20210802-195245_Pixabay%20Images.jpg)
-![alt text](https://github.com/Humayung/pixabay-gallery/blob/main/Desain/1.jpg)
-![alt text](https://github.com/Humayung/pixabay-gallery/blob/main/Desain/2.jpg)
-![alt text](https://github.com/Humayung/pixabay-gallery/blob/main/Desain/3.jpg)
-![alt text](https://github.com/Humayung/pixabay-gallery/blob/main/Desain/4.jpg)
+![Login Page](https://github.com/Humayung/pixabay-gallery/blob/main/Desain/1.jpg)
+![Register Page](https://github.com/Humayung/pixabay-gallery/blob/main/Desain/2.jpg)
+![Favorite Page](https://github.com/Humayung/pixabay-gallery/blob/main/Desain/3.jpg)
+![Account Page](https://github.com/Humayung/pixabay-gallery/blob/main/Desain/4.jpg)
+![Preview Page](https://github.com/Humayung/pixabay-gallery/blob/main/Desain/5.jpg)
+![Explore Page](https://github.com/Humayung/pixabay-gallery/blob/main/Desain/6.jpg)
